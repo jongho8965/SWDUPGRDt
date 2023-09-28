@@ -3,19 +3,71 @@
 //10 | 종호종호 제작!
 //무단 배포및 무단 복제시
 //죽여버릴거야 (=
+//이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//비상업적
+//비상업적
+//비상업적
+//비상업적
+//비상업적
+//비상업적
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+//다음 조건에 따라:
+//저작자 표시 — 적절한 크레딧을 제공하고 라이센스에 대한 링크를 제공하고 변경 사항이 있는지 //표시해야 합니다 . 귀하는 합당한 방식으로 그렇게 할 수 있지만 라이선스 제공자가 귀하 또는 //귀하의 사용을 보증한다고 제안하는 방식은 아닙니다.
+
+//비상업적 — 자료를 상업적 목적 으로 사용할 수 없습니다 .
+//
+//NoDerivatives — 자료를 리믹스, 변형 또는 빌드하는 경우 수정된 자료를 배포할 수 없습니다.
+
+//추가 제한 없음 — 다른 사람이 라이선스에서 허용하는 모든 행위를 법적으로 제한하는 법적 조건이나 기술적 조치를 적용할 수 없습니다 .
+
+
+//https://jongho8965.github.io/NeoAD/
+
+let adtime = 10; // 광고가 표시될 시간 (초)
+let adText = "NeoAD"; // 표시될 광고 텍스트
 
 let lastClickTime = 0; // 마지막 클릭 시간을 저장하는 변수
-const minClickInterval = 65; // 최소 클릭 간격 (밀리초 단위)
+const minClickInterval = 90; // 최소 클릭 간격 (밀리초 단위)
 let NOautoClick = 0
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+//NoDerivatives
+
+let wHeight = 2000
 
 function setup() {
-  createCanvas(360,650);
+//============================================setup
+  createCanvas(windowWidth, wHeight);
   fightcolorR = round(random(0,255)); 
   fightcolorG = round(random(0,255)); 
   fightcolorB = round(random(0,255)); 
-  backgroundMusic.loop() //배경음악
+//  backgroundMusic.loop() //배경음악
   backgroundMusic.onended(musicDelay)
-  setInterval(updateValue, 120000); //120초마다 업데이트
+  setInterval(updateValue, 100000); //100초마다 업데이트
+  startTime = millis(); // 현재 시간 기록
+  gameid = floor(random(1000000000,99999999999))
+  setInterval(updateStockPrice, 2000);
+  setInterval(updateNews, 60000);
+//============================================setup
 }
 let musictimer = 3
 let isMusicDelay = false
@@ -31,11 +83,29 @@ let img
 let DOBK2
 let backgroundMusic //배경음악
 
+let news = 0; // 초기값은 0으로 설정
+let newss = true;
+let newsss = 0;
+
 let DBP = true
+let nDBP = true
 let UPD = false
 let FTR = 0
 let FT = 0
 
+//sant50,sant500
+
+let sant50 = 7
+
+let sant500 = 370
+
+let sants50 = 7
+let sants500 = 385
+
+let goods = true
+let isGoodsAdded = 0;
+
+let input, button, greeting;
 
 //(타이머) - let TI = 60
 
@@ -44,6 +114,20 @@ let W = 139
 let E = 21
 let ad = 0
 let egg = 0
+let evt1500 = 0
+let good = 0
+
+let npg = 0
+let npgy = 0
+let pg = 120
+
+let startTime;
+let showAlert = false;
+
+let balance = 1000; // 초기 자본
+let stockPrice = 50000; // 초기 주식 가격
+let stocks = 0; // 보유 주식 수
+let clicked = false; // 클릭 이벤트 처리 플래그
 
 let Point = 0
 let LUCK = 0
@@ -53,6 +137,10 @@ let M = 3500
 let DL = 0
 let DLS = 0
 //let LPO = 0
+
+let jhpt = 0
+
+let gameid = 0
 
 let redColor = 0;
 let yPos = 0;
@@ -86,6 +174,10 @@ let fightcolorG;
 let fightcolorB; 
 
 let fighttimer = 5.5
+let adtimer2 = 10
+
+let neoAD = false
+
 
 //------------------------------------------------------
 //배경음악
@@ -158,9 +250,12 @@ function draw() {
   }
   fill(245,245,245)
   strokeWeight(0.7)
-  rect(2,2,356,646)
+  rect(2,2,windowWidth - 4, wHeight - 4)
   strokeWeight(1.5)
-
+//-------------------------------------------------
+    if (stockPrice <= 0 ) {
+      stockPrice = 0
+    }
 //-------------------------------------------------
     //버튼 오브젝트
   push();
@@ -181,7 +276,7 @@ function draw() {
   push();
   textSize(20);
   fill(0)
-  text(Point,195.3, 177);
+//  text(Point,195.3, 177);
 //  text("당첨횟수 : " + LUCKS,10,30);
   text("돈 : " + M,15,32);
   textSize (40)
@@ -205,17 +300,25 @@ function draw() {
   text("지금은 업데이트중 입니다.",10, 220)
   text("게임에 오류가 발생할수",10, 230)
   text("있습니다.",10, 240)
-  text(NOautoClick,10, 250)
-  text("-",10, 260)
-  text("-",10, 270)
+  text("오토클릭 감지횟수 : " + NOautoClick + " / 15",10, 250)
+  text("2.3.1 ~ 2.4.2 업뎃 : bug-fix & 밸런스 조절",10, 260)
+  text("2.4.3 업데이트 예정 : 뉴스 추가 ",10, 270)
+  text("공식 사이트로 접속시 업데이트가 느릴수 있음",10, 290)
   textSize(15)
 //  text("HOW TO PLAY? - PRESS H KEY",10,640)
   text("강화 성공 수 = " + LUCKS , 17,55)
   text("광고횟수 = " + round(ad,3), 17 , 75)
+  text("명성 = " + good, 17 , 95)
+  text("방지권 = " + npg, 17 , 115)
+  text("사용가능 방지권 = " + npgy, 187 , 175)
+//  text("JH.point = " + jhpt, 20 , 335)
+  //jhpt
   textSize(9.5)
   text("rp.of_JHJH ©",272.25,72)
   textSize(12)
-  text("Ver-2",230,73.5)
+  text("Ver-2.4.2",215,73.5)
+  textSize(12)
+  text("GAME_ID : "+ gameid,200,90)
 //  text(LUCKS * 10,100,100) - 테스터
   textSize(14)
 //  text("위험한 복권은 70만원의 가격으로 3/1 확률로 100만원 당첨",12, 300)
@@ -240,7 +343,7 @@ function draw() {
   push();
   textSize(20);
   fill(0)
-  text(Point,195.3, 177);
+//  text(Point,195.3, 177);
   textSize (15)
   textStyle(BOLD)
   fill(255)
@@ -266,14 +369,14 @@ function draw() {
   push();
   textSize(20);
   fill(0)
-  text(Point,195.3, 177);
+//  text(Point,195.3, 177);
   textSize (15)
   textStyle(BOLD)
   fill(255)
   text("1vs1 (AI)",168.3, 331)
   pop()
 //-----------------------------------------------
-      push();
+    push();
   strokeWeight(10); 
   pop();
   
@@ -291,7 +394,7 @@ function draw() {
   push();
   textSize(20);
   fill(0)
-  text(Point,195.3, 177);
+//  text(Point,195.3, 177);
   textSize (14)
   textStyle(BOLD)
   fill(255)
@@ -299,7 +402,7 @@ function draw() {
   text("팔기",295, 338)
   pop()
 //-----------------------------------------------
-    push();
+  push();
   strokeWeight(10); 
   pop();
   
@@ -317,38 +420,149 @@ function draw() {
   push();
   textSize(20);
   fill(0)
-  text(Point,195.3, 177);
+//  text(Point,195.3, 177);
   textSize (15)
   textStyle(BOLD)
   fill(255)
   text("1/4확률 복권",265.5, 230)
   pop()
 //-----------------------------------------------
+  push();
+  strokeWeight(10); 
+  pop();
+  
+  if(mouseX > 260 && mouseX < 360 
+     && mouseY > 400 && mouseY < 450) 
+  {
+    fill(204,102,0)
+  }
+  else{
+    fill(255,153,0)
+  }
+  
+  rect(260,400,97,50);
+  
+  push();
+  textSize(20);
+  fill(0)
+//  text(Point,195.3, 177);
+  textSize (11)
+  textStyle(BOLD)
+  fill(255)
+  text("방지권 사용하기",267, 430)
+  pop()
+//-----------------------------------------------
+    push();
+  strokeWeight(10); 
+  pop();
+  
+//  if(mouseX > 150 && mouseX < 250 
+//     && mouseY > 300 && mouseY < 350) 
+  
+  if(mouseX > 150 && mouseX < 250 
+     && mouseY > 400 && mouseY < 450) 
+  {
+    fill(204,102,0)
+  }
+  else{
+    fill(255,153,0)
+  }
+  
+  rect(150,400,97,50);
+  
+  push();
+  textSize(20);
+  fill(0)
+//  text(Point,195.3, 177);
+  textSize (11)
+  textStyle(BOLD)
+  fill(255)
+  text("방지권 구매하기",157, 430)
+  pop()
+//-----------------------------------------------
+  if(mouseX > 150 && mouseX < 250 
+     && mouseY > 500 && mouseY < 550) 
+  {
+    fill(0,51,255)
+  }
+  else{
+    fill(0,102,255)
+  }
+  
+  rect(150,500,97,50);
+  
+  if(mouseX > 260 && mouseX < 360 
+     && mouseY > 500 && mouseY < 550) 
+  {
+    fill(0,51,255)
+  }
+  else{
+    fill(0,102,255)
+  }
+  
+  rect(260,500,97,50);
+  
+  push();
+  textSize(20);
+  fill(0)
+//  text(Point,195.3, 177);
+  textSize (12)
+  textStyle(BOLD)
+  fill(255)
+  text("주식 구매하기",160, 530)
+  text("주식 판매하기",270, 530)
+  fill(22)
+  textSize(15);
+
+  text(`1주당 가격: $${stockPrice.toFixed(2)}`, 180, 490);
+  text("보유개수 " + stocks + " 주", 205, 570);
+  pop()
+  
+  
+//-----------------------------------------------
   
   // 점수 늘리기
   if(LUCK == 5 && SG == false) {
     LUCKS += 1
+    jhpt += LUCKS
     M += LUCKS * 1200
     SG = true
   }
   
-  // 안내판
-  if(LUCK == 5)
-    {
-      push()
-    fill (22)
-      textSize(25)
-    text("강화성공",255, 135);
-      pop()
+  //검 파괴
+  if(LUCK == pg && SG == false) {
+    if(npgy == 0) {
+      LUCKS = 0
+      jhpt = 0
+      SG = true
     }
-  else {
+    else
+      npgy -= 1
+      SG = true
+  }
+  
+  // 안내판
+  if(LUCK == 5) {
+    push()
+    fill (22)
+    textSize(25)
+    text("강화성공",255, 135);
+    pop()
+  }
+  if(LUCK !== 5 && LUCK !== 30) {
     push()
     fill(22)
     textSize(25)
     text("강화실패",255, 135);
     pop()
   }
-  
+  if(LUCK == pg) {
+    push()
+    fill(22)
+    textSize(25)
+    text("검 파괴",255, 135);
+    pop()
+  }
 //-----------------------------------------------
   //(타이머) - TI -= deltaTime / 1000
 //-----------------------------------------------
@@ -374,6 +588,25 @@ function draw() {
       }
     }
   }
+//=====================================================
+//이스터에그(1500)
+  if(keyIsDown(86)) {
+    if(keyIsDown(84)) {
+      if(keyIsDown(49)) {
+        if(keyIsDown(69)) {
+          if(keyIsDown(48)) {
+            if(keyIsDown(53)) {
+              if(egg == 0) {
+                LUCKS = 15
+                good = 2
+                evt1500 = 1
+              } 
+            }
+          }
+        }
+      }
+    }
+  }
 //------------------------------------------------------
   if(keyIsDown(67)) {
     if(keyIsDown(82)) {
@@ -383,7 +616,7 @@ function draw() {
 //secret credits
         push()
         fill(22)
-        rect (0,0,360,650)
+        rect (0,0,windowWidth, windowHeight)
         textSize(25)
         fill(random(0,255),random(0,255),random(0,255))
         text ("secret-credits-!",50,50)
@@ -433,7 +666,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("0강 나무막대기",50,500)
+    text("0강 나무막대기",sant50,sant500)
     pop()
   }
     if(LUCKS == 1) {
@@ -441,7 +674,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("1강 나무검",50,500)
+    text("1강 나무검",sant50,sant500)
     pop()
   }
     if(LUCKS == 2) {
@@ -449,7 +682,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("2강 쓸만한 나무검",50,500)
+    text("2강 쓸만한 나무검",sant50,sant500)
     pop()
   }
     if(LUCKS == 3) {
@@ -457,7 +690,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("3강 일반검",50,500)
+    text("3강 일반검",sant50,sant500)
     pop()
   }
     if(LUCKS == 4) {
@@ -465,7 +698,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("4강 2단봉",50,500)
+    text("4강 2단봉",sant50,sant500)
     pop()
   }
     if(LUCKS == 5) {
@@ -473,7 +706,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("5강 3단봉",50,500)
+    text("5강 3단봉",sant50,sant500)
     pop()
   }
     if(LUCKS == 6) {
@@ -481,7 +714,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("6강 단단한 철검",50,500)
+    text("6강 단단한 철검",sant50,sant500)
     pop()
   }
     if(LUCKS == 7) {
@@ -489,21 +722,32 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("7강 금으로 만들어진검검",50,500)
+    text("7강 금으로 만들어진 검",sant50,sant500)
     pop()
   }  if(LUCKS == 8) {
     push()
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("8강 루비장식이 달린 검",50,500)
+    text("8강 루비장식이 달린 검",sant50,sant500)
     pop()
   }  if(LUCKS == 9) {
     push()
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("9강 다이아몬드가 박힌 붉은검루비검",50,500)
+    text("9강 다이아몬드가 박힌 붉은검루비검",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 10 && isGoodsAdded == 0) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("10강 100% 다이아몬드로만 이루어진 검 ",sant50,sant500)
+    good += 1
+    jhpt += 100
+    isGoodsAdded = 1;
     pop()
   }
     if(LUCKS == 10) {
@@ -511,7 +755,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("10강 100% 다이아몬드로만 이루어진 검 ",50,500)
+    text("10강 100% 다이아몬드로만 이루어진 검 ",sant50,sant500)
     pop()
   }
     if(LUCKS == 11) {
@@ -519,7 +763,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("11강 전설적인 황금의 창",50,500)
+    text("11강 전설적인 황금의 창",sant50,sant500)
     pop()
   }
     if(LUCKS == 12) {
@@ -527,7 +771,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("12강 불타는 검",50,500)
+    text("12강 불타는 검",sant50,sant500)
     pop()
   }
     if(LUCKS == 13) {
@@ -535,7 +779,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("13강 그림자의 칼",50,500)
+    text("13강 그림자의 칼",sant50,sant500)
     pop()
   }
     if(LUCKS == 14) {
@@ -543,7 +787,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("14강 어둠의 검",50,500)
+    text("14강 어둠의 검",sant50,sant500)
     pop()
   }
     if(LUCKS == 15) {
@@ -551,7 +795,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("15강 암흑의 검",50,500)
+    text("15강 암흑의 검",sant50,sant500)
     pop()
   }
     if(LUCKS == 16) {
@@ -559,7 +803,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("16강 전설의 검",50,500)
+    text("16강 DARK SOULS SOWRD",sant50,sant500)
     pop()
   }
     if(LUCKS == 17) {
@@ -567,7 +811,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("17강 파괴의 검",50,500)
+    text("17강 어두운 자들의 힘",sant50,sant500)
     pop()
   }
     if(LUCKS == 18) {
@@ -575,21 +819,33 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("18강 보이지 않는 검",50,500)
+    text("18강 보이지 않는 검",sant50,sant500)
     pop()
   }  if(LUCKS == 19) {
     push()
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("19강 투명의 검",50,500)
+    text("19강 투명의 검",sant50,sant500)
     pop()
-  }  if(LUCKS == 20) {
+  }  
+    if(LUCKS == 20 && isGoodsAdded == 1) {
     push()
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("20강 물과 바람, 태양이 만들어낸 신비의 검",50,500)
+    text("20강 물과 바람, 태양이 만들어낸 신비의 검",sant50,sant500)
+    good += 1
+    isGoodsAdded = 2;
+    jhpt += 500
+    pop()
+  }
+  if(LUCKS == 20) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("20강 물과 바람, 태양이 만들어낸 신비의 검",sant50,sant500)
     pop()
   }
     if(LUCKS == 21) {
@@ -597,7 +853,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("21강 바다에서 뽑은 기운이 잠든 *해신*",50,500)
+    text("21강 바다에서 뽑은 기운이 잠든 *해신*",sant50,sant500)
     pop()
   }
     if(LUCKS == 22) {
@@ -605,7 +861,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("22강 La Vie en Rose",50,500)
+    text("22강 장미칼",sant50,sant500)
     pop()
   }
     if(LUCKS == 23) {
@@ -613,7 +869,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("23강 장미칼",50,500)
+    text("23강 La Vie en Rose",sant50,sant500)
     pop()
   }
     if(LUCKS == 24) {
@@ -621,7 +877,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("24강 天樂(천악)",50,500)
+    text("24강 天樂(천악)",sant50,sant500)
     pop()
   }
     if(LUCKS == 25) {
@@ -629,7 +885,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("25강 디바인 스타 퍼니셔!!!",50,500)
+    text("25강 디바인 스타 퍼니셔!!!",sant50,sant500)
     pop()
   }
     if(LUCKS == 26) {
@@ -637,7 +893,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("26강 백룡의 낫",50,500)
+    text("26강 백룡의 낫",sant50,sant500)
     pop()
   }
     if(LUCKS == 27) {
@@ -645,7 +901,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("27강 $$$ 돈의-권력 $$$",50,500)
+    text("27강 $$$ 돈의-권력 $$$",sant50,sant500)
     pop()
   }
   if(LUCKS == 28) {
@@ -653,7 +909,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("28강 공허의 빛",50,500)
+    text("28강 공허의 빛",sant50,sant500)
     pop()
   }
   if(LUCKS == 29) {
@@ -661,7 +917,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("29강 우라늄 검",50,500)
+    text("29강 우라늄 검",sant50,sant500)
     pop()
   }
   if(LUCKS == 30) {
@@ -669,7 +925,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("30강 시공간을 가르는 힘",50,500)
+    text("30강 시공간을 가르는 힘",sant50,sant500)
     pop()
   }
   if(LUCKS == 31) {
@@ -677,7 +933,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("31강 수령동지님이 쓰시던(?) 검",50,500)
+    text("31강 수령동지님이 쓰시던(?) 검",sant50,sant500)
     pop()
   }
   if(LUCKS == 32) {
@@ -685,7 +941,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("32강 삼성 회장의 골프채",50,500)
+    text("32강 삼성 회장의 골프채",sant50,sant500)
     pop()
   }
   if(LUCKS == 33) {
@@ -693,7 +949,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("33강 해리포터의 마법지팡이",50,500)
+    text("33강 해리포터의 마법지팡이",sant50,sant500)
     pop()
   }
   if(LUCKS == 34) {
@@ -701,7 +957,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("34강 덤블도어의 마법지팡이",50,500)
+    text("34강 덤블도어의 마법지팡이",sant50,sant500)
     pop()
   }
   if(LUCKS == 35) {
@@ -717,7 +973,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("36강 태극기",50,500)
+    text("36강 태극기",sant50,sant500)
     pop()
   }
   if(LUCKS == 37) {
@@ -725,7 +981,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("37강 더블 태극기",50,500)
+    text("37강 더블 태극기",sant50,sant500)
     pop()
   }
   if(LUCKS == 38) {
@@ -733,7 +989,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("38강 더블-더블 태!극!기!",50,500)
+    text("38강 더블-더블 태!극!기!",sant50,sant500)
     pop()
   }
   if(LUCKS == 39) {
@@ -741,7 +997,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("39강 (정치)암살용 도네(?)",50,500)
+    text("39강 (정치)암살용 도네(?)",sant50,sant500)
     pop()
   }
   if(LUCKS == 40) {
@@ -749,7 +1005,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("40강 마법진 (그리는 도구)",50,500)
+    text("40강 마법진 (그리는 도구)",sant50,sant500)
     pop()
   }
   if(LUCKS == 41) {
@@ -757,7 +1013,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("41강 메태오(1회용)",50,500)
+    text("41강 메태오(1회용)",sant50,sant500)
     pop()
   }
   if(LUCKS == 42) {
@@ -765,7 +1021,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("42강 고려대의 위엄",50,500)
+    text("42강 고려대의 위엄",sant50,sant500)
     pop()
   }
   if(LUCKS == 43) {
@@ -773,7 +1029,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("43강 연세대의 위엄",50,500)
+    text("43강 연세대의 위엄",sant50,sant500)
     pop()
   }
   if(LUCKS == 44) {
@@ -781,7 +1037,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("44강 서울대의 위엄",50,500)
+    text("44강 서울대의 위엄",sant50,sant500)
     pop()
   }
   if(LUCKS == 45) {
@@ -789,7 +1045,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("45강 SKY - 서 | 고 | 연, 모두 모였다!",50,500)
+    text("45강 SKY - 서 | 고 | 연, 모두 모였다!",sant50,sant500)
     pop()
   }
   if(LUCKS == 46) {
@@ -797,7 +1053,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("46강 bell",50,500)
+    text("46강 bell",sant50,sant500)
     pop()
   }
     if(LUCKS == 47) {
@@ -805,7 +1061,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("47강개",50,500)
+    text("47강 번개",sant50,sant500)
     pop()
   }
     if(LUCKS == 48) {
@@ -813,7 +1069,7 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("48강 더블-번개",50,500)
+    text("48강 더블-번개",sant50,sant500)
     pop()
   }
     if(LUCKS == 49) {
@@ -821,41 +1077,395 @@ function draw() {
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("49강 더블-더블 번개",50,500)
+    text("49강 더블-더블 번개",sant50,sant500)
     pop()
   }
-    if(LUCKS == 50) {
+    if(LUCKS == 50 && isGoodsAdded == 2) {
     push()
     fill(22)
     textSize(15)
     textStyle(BOLD)
-    text("50강 번개의 신이여 온 세상을 흔드리라",50,500)
+    good += 2
+    jhpt += 500
+    isGoodsAdded = 3;
+    text("50강 번개의 신이여 온 세상을 흔드리라",sant50,sant500)
   }
+    if(LUCKS == 51) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("51강 공허의 신이여 온 세상을 삼켜라",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 52) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("52강 트럼프의 골프채",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 53) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("53강 미국의 권력",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 54) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("54강 Black Void Chain",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 55) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("55강 Red Void Chain",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 56) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("56강 한-방 검 (1회용)",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 57) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("57강 아이스크림 숫가락",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 58) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("58강 나무막대기",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 59) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("59강 빠빨간맛! 북! 조-선 빼빼로",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 60 && isGoodsAdded == 3){
+    push()
+    fill(22)
+    good += 3
+    isGoodsAdded = 4;
+    textSize(15)
+    textStyle(BOLD)
+    text("60강 치킨(파닭파닭)",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 61) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("61강 전봇대",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 62) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("62강 전광판",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 63) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("63강 으악!!!불편해",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 64) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("64강 펀-안",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 65) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("65강 한 학생의 분노를 담은 연필",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 66) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("66강 도시락 폭탄",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 67) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("67강 도시-폭탄 (?)",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 68) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("68강 더블 장미칼",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 69) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("69강 ROSE SWORD - POWER",sant50,sant500)
+    pop()
+  }
+    if(LUCKS ==70 && isGoodsAdded == 4) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("70강 70조 짜리 아파트",sant50,sant500)
+    good += 5
+    jhpt += 1000
+    isGoodsAdded = 5;
+    pop()
+  }
+    if(LUCKS == 71) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("71강 Duptil, Cutlass of the Night",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 72) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("72강 強すぎて無駄な剣",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 73) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("73강 सुपर आइडल पानी की बोतल",sant50,sant500)
+  }
+    if(LUCKS == 74) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("74강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 75) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("75강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 76) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("76강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 77) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("77강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 78) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("78강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 79) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("79강",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 80) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("80",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 81) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("81",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 82) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("82",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 83) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("83",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 84) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("84",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 85) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("85",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 86) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("86",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 87) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("87",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 88) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("88",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 89) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("89",sant50,sant500)
+    pop()
+  }
+    if(LUCKS == 90) {
+    push()
+    fill(22)
+    textSize(15)
+    textStyle(BOLD)
+    text("90",sant50,sant500)
+    pop()
+  }
+//===========================================
+  //주식 뉴스 코드
+  //let sants50 = 20
+  //
+  //let sants500 = 370
+  //주식 뉴스 코드
+//===========================================
+  
+  
+//    if (M > 800000000) { // M이 10억을 초과하면 메시지와 사각형을 표시
+//    fill(255, 0, 0); // 빨간색으로 설정
+//    rect(-1, -1, 2000, 1000); // (100, 150) 위치에 가로 200, 세로 100 크기의 사각형 그리기
+//
+//    textSize(24);
+//    textAlign(CENTER, CENTER);
+//    fill(255); // 흰색으로 설정
+//    text("비정상적인 활동 감지 - 인증서 필요", width / 2, height / 2);
+//  }
+  
+  // 10초 이내에 M이 8만을 초과하면 showAlert를 true로 설정
+  if (millis() - startTime < 10000 && M > 80000) {
+    showAlert = true;
+  }
+  
+    if (showAlert) {
+    fill(255, 0, 0); // 빨간색으로 설정
+    rect(0, 0, width, height); // 화면 전체 크기의 빨간색 사각형 그리기
 
+    textSize(24);
+    textAlign(CENTER, CENTER);
+    fill(255); // 흰색으로 설정
+    text("비정상적인 활동 감지", width / 2, height / 2);
+  }
+  
+// M += 1000; // 예시로 1000씩 증가시켜 봅니다. //테스트용
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+//===========================================
   
 //게임오버
   if(M<=0) {
     fill (139,0,0)
     strokeWeight(0)
-    rect (-1,-1,1000,1000)
+    rect (-1,-1,windowWidth, windowHeight)
     fill (255,255,255)
     textSize(25)
     textStyle(BOLD)
-    text("GAME OVER", 104, 290)
+    text("GAME OVER", windowWidth / 2 -20 , windowHeight / 2)
     textSize(20)
-    text("새로고침하여 다시시작", 81.6, 310)
+    text("새로고침하여 다시시작", windowWidth / 2 - 45, windowHeight / 2 - 20)
   }
-  if(NOautoClick >= 12) {
+  if(NOautoClick >= 15) {
     push()
     fill(0,0,0)
     rect(-1,-1,1000,1000)
@@ -902,7 +1512,7 @@ function draw() {
     push()
     DBP = false
     fill(160,160,)
-    rect(0,0,360,650)
+    rect(0,0,windowWidth, windowHeight)
     textStyle(BOLD)
     fill(255,0,0)
     text("PVB",49,50)
@@ -943,6 +1553,9 @@ function draw() {
         LUCKS += FTR
         M += floor(random(0,50000)) * FTR
         ad += floor(M/25)
+        if (floor(random(1,10)) == 7) {
+        good += 1
+          }
         FTR = 0
         DBP = true
       }
@@ -951,8 +1564,8 @@ function draw() {
   }
   //여기에 코드
 //=========================================================
+//=========================================================
 }
-
 function mousePressed()
 {
   if(mouseX > 150 && mouseX < 250 && mouseY > 100 &&   mouseY < 150) {
@@ -960,7 +1573,7 @@ function mousePressed()
       LUCK = floor(random(1,6 + LUCKS * 10));
       M -= floor(random(0,700))
       SG = false
-      Point = LUCK //임시
+//      Point = LUCK //임시
     //round(숫자or랜덤()) <- 반올림
     //floor(숫자or랜덤()) <- 내림
     //ceil(숫자or랜덤()) <- 올림
@@ -974,9 +1587,19 @@ function mousePressed()
   if(mouseX > 150 && mouseX < 250 && mouseY > 200 && mouseY < 250) {
     if(DBP == true) {
       ad += 4
+      ad += good * 2
     }
   }
-
+  if(mouseX > 260 && mouseX < 360 
+     && mouseY > 400 && mouseY < 450) {
+      if(DBP == true) {
+        //방지권 사용가능
+        if (npg >= 1) {
+          npg -= 1
+          npgy += 1
+        }
+      }
+    }
 //-------------------------------------------------
 
 if(mouseX > 150 && mouseX < 250 && mouseY > 300 && mouseY < 350) {
@@ -1006,8 +1629,48 @@ if(mouseX > 150 && mouseX < 250 && mouseY > 300 && mouseY < 350) {
           DOBK = 0
           M = M*4
         }
+        else {
+          if (floor(random(1,20)) == 5) {
+            M -= floor((good * M) / 2)
+            good = 0
+          }
+        }
       }
     }
+    if(mouseX > 150 && mouseX < 250 
+     && mouseY > 400 && mouseY < 450) {
+      push()
+        if(DBP == true) {
+          if(M >= 25000 + 10000 * npg + (LUCKS * 100) + 1) {
+            //방지권 구매
+            //방지권 변수 npg
+            //사용가능 방지권 변수 npgy
+            M -= 25000 + 10000 * npg + (LUCKS * 100)
+            npg += 1
+          }
+          else {
+            color(255,0,0)
+            textStyle(BOLD)
+            text("에러! 돈 부족 최소 10000 + 1000 * npg + (LUCKS * 100) 이상",50,50)
+          }
+        }
+      pop()
+    }
+    if(mouseX > 150 && mouseX < 250 
+     && mouseY > 500 && mouseY < 550 && M > stockPrice) {
+      //주식 구매
+        stocks++;
+        M -= stockPrice;
+        clicked = true; // 클릭 이벤트 처리 플래그 설정
+    }
+    if(mouseX > 260 && mouseX < 360 
+     && mouseY > 500 && mouseY < 550 && 0 < stocks) {
+      // 주식 판매
+        stocks--;
+        M += stockPrice;
+        clicked = true; // 클릭 이벤트 처리 플래그 설정
+      }
+    
 //----------------------------------------------if2
   
   // 다른코드 지역 (여기에 코드 X) - cd = mouseCLICK
@@ -1036,3 +1699,17 @@ function updateValue() {
   NOautoClick -= 1; // 20초마다 NOautoClick 변수 값을 -1로 업데이트
   }
 }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+// 주식 가격 업데이트 함수
+function updateStockPrice() {
+  stockPrice += random(-10000,10000);
+}
+
+function updateNews() {
+  // 1에서 5까지의 랜덤한 숫자 생성
+  news = Math.floor(random(1, 6));
+}
+//http://creativecommons.org/licenses/by-nc-nd/4.0/
